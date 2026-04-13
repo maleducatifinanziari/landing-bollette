@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risparmia sulle bollette in 15 minuti — Maleducati Finanziari</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* === RESET E BASE === */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --mf-navy:       #003a64;
+      --mf-blue:       #54a2d2;
+      --mf-light:      #a9cee8;
+      --mf-white:      #ffffff;
+      --mf-gray:       #f5f7fa;
+      --mf-text:       #2d3748;
+      --mf-font-title: 'Antonio', sans-serif;
+      --mf-font-body:  'DM Sans', sans-serif;
+    }
+
+    body {
+      font-family: var(--mf-font-body);
+      color: var(--mf-text);
+      background: var(--mf-white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    .mf-nav {
+      background: var(--mf-white);
+      border-bottom: 1px solid rgba(0, 58, 100, 0.1);
+      padding: 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .mf-nav-logo {
+      font-family: var(--mf-font-title);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--mf-navy);
+      letter-spacing: 0.5px;
+    }
+
+    .mf-nav-logo a { color: inherit; }
+
+    .mf-nav-back {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--mf-blue);
+      transition: color 0.2s;
+    }
+
+    .mf-nav-back:hover { color: var(--mf-navy); }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .mf-hero {
+      background:
+        radial-gradient(ellipse at 10% 20%, rgba(84, 162, 210, 0.18) 0%, transparent 55%),
+        radial-gradient(ellipse at 90% 85%, rgba(84, 162, 210, 0.08) 0%, transparent 50%),
+        var(--mf-navy);
+      padding: 80px 48px;
+    }
+
+    .mf-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .mf-hero-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mf-blue);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .mf-hero h1 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(36px, 4vw, 56px);
+      font-weight: 700;
+      color: var(--mf-white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .mf-hero-subtitle {
+      font-size: 18px;
+      color: var(--mf-light);
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .mf-hero-cta {
+      display: inline-block;
+      background: var(--mf-blue);
+      color: var(--mf-white);
+      font-family: var(--mf-font-body);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 18px 36px;
+      border-radius: 10px;
+      letter-spacing: 0.3px;
+      transition: background 0.2s ease;
+    }
+
+    .mf-hero-cta:hover { background: #3d8ab8; }
+
+    .mf-hero-note {
+      font-size: 13px;
+      color: rgba(169, 206, 232, 0.6);
+      margin-top: 14px;
+    }
+
+    .mf-hero-photo {
+      display: flex;
+      justify-content: center;
+    }
+
+    .mf-hero-photo img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 24px;
+      border: 2px solid rgba(84, 162, 210, 0.3);
+    }
+
+    /* ============================================================
+       COME FUNZIONA
+       ============================================================ */
+    .mf-come-funziona {
+      padding: 100px 48px;
+      background: var(--mf-white);
+    }
+
+    .mf-come-funziona-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mf-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--mf-blue);
+      margin-bottom: 16px;
+      display: block;
+    }
+
+    .mf-section-title {
+      font-family: var(--mf-font-title);
+      font-size: clamp(28px, 3vw, 44px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      line-height: 1.15;
+      margin-bottom: 56px;
+    }
+
+    .mf-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      text-align: left;
+    }
+
+    .mf-step {
+      position: relative;
+    }
+
+    .mf-step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--mf-navy);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mf-font-title);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--mf-white);
+      margin-bottom: 20px;
+    }
+
+    .mf-step h3 {
+      font-family: var(--mf-font-title);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--mf-navy);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .mf-step p {
+      font-size: 15px;
+      color: var(--mf-text);
+      line-height: 1.75;
+    }
+
+    /* ============================================================
+       PERCHÉ È GRATIS
+       ============================================================ */
+    .mf-perche {
+      padding: 80px 48px;
+      background: var(--mf-gray);
+    }
+
+    .mf-perche-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mf-perche h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(24px, 2.5vw, 36px);
+      font-weight: 700;
+      color: var(--mf-navy);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .mf-perche p {
+      font-size: 16px;
+      color: var(--mf-text);
+      line-height: 1.85;
+      margin-bottom: 16px;
+    }
+
+    .mf-perche p:last-child { margin-bottom: 0; }
+
+    /* ============================================================
+       CHI SIAMO
+       ============================================================ */
+    .mf-chi-siamo {
+      padding: 100px 48px;
+      background: var(--mf-white);
+    }
+
+    .mf-chi-siamo-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .mf-chi-siamo-photo img {
+      width: 100%;
+      max-width: 480px;
+      border-radius: 24px;
+    }
+
+    .mf-chi-siamo-text p {
+      font-size: 16px;
+      color: var(--mf-text);
+      line-height: 1.85;
+      margin-bottom: 18px;
+    }
+
+    .mf-chi-siamo-text p:last-child { margin-bottom: 0; }
+
+    .mf-chi-siamo-text strong { color: var(--mf-navy); }
+
+    /* ============================================================
+       CTA FINALE
+       ============================================================ */
+    .mf-cta-finale {
+      padding: 100px 48px;
+      background:
+        radial-gradient(ellipse at 15% 30%, rgba(84, 162, 210, 0.2) 0%, transparent 55%),
+        radial-gradient(ellipse at 85% 80%, rgba(84, 162, 210, 0.1) 0%, transparent 50%),
+        var(--mf-navy);
+    }
+
+    .mf-cta-finale-inner {
+      max-width: 640px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mf-cta-finale .mf-section-label { color: var(--mf-blue); }
+
+    .mf-cta-finale h2 {
+      font-family: var(--mf-font-title);
+      font-size: clamp(28px, 3vw, 44px);
+      font-weight: 700;
+      color: var(--mf-white);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .mf-cta-finale p {
+      font-size: 17px;
+      color: var(--mf-light);
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    .mf-cta-finale-btn {
+      display: inline-block;
+      background: var(--mf-blue);
+      color: var(--mf-white);
+      font-family: var(--mf-font-body);
+      font-size: 16px;
+      font-weight: 700;
+      padding: 18px 40px;
+      border-radius: 10px;
+      letter-spacing: 0.3px;
+      transition: background 0.2s ease;
+    }
+
+    .mf-cta-finale-btn:hover { background: #3d8ab8; }
+
+    .mf-cta-finale-note {
+      font-size: 13px;
+      color: rgba(169, 206, 232, 0.55);
+      margin-top: 16px;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    .mf-footer {
+      background: #001f38;
+      padding: 40px 48px;
+      border-top: 1px solid rgba(169, 206, 232, 0.1);
+    }
+
+    .mf-footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .mf-footer-brand {
+      font-family: var(--mf-font-title);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--mf-white);
+    }
+
+    .mf-footer-inner p {
+      font-size: 12px;
+      color: rgba(169, 206, 232, 0.4);
+    }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 960px) {
+      .mf-nav { padding: 0 24px; }
+
+      .mf-hero { padding: 64px 24px; }
+      .mf-hero-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .mf-hero-photo { order: -1; }
+      .mf-hero-photo img { max-width: 320px; margin: 0 auto; }
+
+      .mf-come-funziona { padding: 72px 24px; }
+      .mf-steps { grid-template-columns: 1fr; gap: 32px; }
+
+      .mf-perche { padding: 64px 24px; }
+
+      .mf-chi-siamo { padding: 72px 24px; }
+      .mf-chi-siamo-inner { grid-template-columns: 1fr; gap: 40px; }
+      .mf-chi-siamo-photo img { max-width: 360px; margin: 0 auto; }
+
+      .mf-cta-finale { padding: 72px 24px; }
+
+      .mf-footer { padding: 32px 24px; }
+      .mf-footer-inner { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="mf-nav">
+    <div class="mf-nav-logo">
+      <a href="https://maleducatifinanziari.com">Maleducati Finanziari</a>
+    </div>
+    <a href="https://maleducatifinanziari.com" class="mf-nav-back">← Torna al sito</a>
+  </nav>
+
+  <!-- ============================================================
+       HERO
+       ============================================================ -->
+  <section class="mf-hero">
+    <div class="mf-hero-inner">
+      <div class="mf-hero-text">
+        <span class="mf-hero-label">Servizio gratuito</span>
+        <h1>Risparmia sulle bollette in 15 minuti — gratis</h1>
+        <p class="mf-hero-subtitle">Prenota una call con noi. Confrontiamo insieme le tue bollette di luce, gas e internet e troviamo l'offerta migliore per te.</p>
+        <a href="https://maleducatifinanziari.setmore.com/services/89f4fb6e-18f6-472f-a0b3-8fbbcfc6a4bb" target="_blank" rel="noopener" class="mf-hero-cta">Prenota la tua call gratuita →</a>
+        <p class="mf-hero-note">Gratuito, senza impegno. Dura 15 minuti.</p>
+      </div>
+      <div class="mf-hero-photo">
+        <img src="bollette.jpg" alt="Dora e Davide — Consulenza bollette gratuita">
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       COME FUNZIONA
+       ============================================================ -->
+  <section class="mf-come-funziona">
+    <div class="mf-come-funziona-inner">
+      <span class="mf-section-label">3 passi semplici</span>
+      <h2 class="mf-section-title">Come funziona</h2>
+      <div class="mf-steps">
+
+        <div class="mf-step">
+          <div class="mf-step-number">1</div>
+          <h3>Prenoti la call gratuita</h3>
+          <p>Scegli il giorno e l'ora che preferisci. La call dura 15 minuti e si svolge online o per telefono.</p>
+        </div>
+
+        <div class="mf-step">
+          <div class="mf-step-number">2</div>
+          <h3>Guardiamo insieme le tue bollette</h3>
+          <p>Ci basta un'occhiata alla tua bolletta attuale. Facciamo noi il confronto con le offerte disponibili sul mercato.</p>
+        </div>
+
+        <div class="mf-step">
+          <div class="mf-step-number">3</div>
+          <h3>Se conviene, cambiamo insieme</h3>
+          <p>Se troviamo un'offerta migliore, ti guidiamo nel passaggio. Zero burocrazia da parte tua, zero interruzioni del servizio.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       PERCHÉ È GRATIS
+       ============================================================ -->
+  <section class="mf-perche">
+    <div class="mf-perche-inner">
+      <span class="mf-section-label">Trasparenza totale</span>
+      <h2>Perché è completamente gratuito per te?</h2>
+      <p>Se decidi di cambiare fornitore, riceviamo una commissione direttamente dal nuovo fornitore — non da te. Il tuo costo finale rimane esattamente quello dell'offerta che ti proponiamo, senza nessuna maggiorazione.</p>
+      <p>Se invece non troviamo niente di meglio rispetto a quello che hai già, te lo diciamo chiaramente. Non c'è nessun obbligo.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CHI SIAMO
+       ============================================================ -->
+  <section class="mf-chi-siamo">
+    <div class="mf-chi-siamo-inner">
+      <div class="mf-chi-siamo-photo">
+        <img src="foto-dora-davide.png" alt="Dora e Davide — Maleducati Finanziari">
+      </div>
+      <div class="mf-chi-siamo-text">
+        <span class="mf-section-label">Chi siamo</span>
+        <h2 class="mf-section-title" style="font-family: var(--mf-font-title); font-size: clamp(28px, 3vw, 44px); font-weight: 700; color: var(--mf-navy); line-height: 1.15; margin-bottom: 24px;">Siamo Dora e Davide,<br>educatori finanziari AIEF.</h2>
+        <p>Da anni aiutiamo le persone a gestire i soldi meglio — senza rinunciare alla vita. Il nostro metodo parte sempre dalla stessa domanda: <strong>dove vanno davvero i tuoi soldi ogni mese?</strong></p>
+        <p>Le bollette sono una delle prime spese fisse che analizziamo con chi inizia un percorso con noi. Sono soldi che escono ogni mese in automatico — e spesso si possono ottimizzare in pochi minuti.</p>
+        <p>Ecco perché abbiamo deciso di offrire questo servizio gratuitamente: è il modo più concreto e immediato per farti risparmiare subito.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       CTA FINALE
+       ============================================================ -->
+  <section class="mf-cta-finale">
+    <div class="mf-cta-finale-inner">
+      <span class="mf-section-label">Inizia ora</span>
+      <h2>Prenota la tua call gratuita</h2>
+      <p>15 minuti. Zero burocrazia. Scopri subito quanto puoi risparmiare su luce, gas e internet.</p>
+      <a href="https://maleducatifinanziari.setmore.com/services/89f4fb6e-18f6-472f-a0b3-8fbbcfc6a4bb" target="_blank" rel="noopener" class="mf-cta-finale-btn">Prenota ora — è gratis →</a>
+      <p class="mf-cta-finale-note">Nessun impegno. Se non troviamo niente di meglio, te lo diciamo.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="mf-footer">
+    <div class="mf-footer-inner">
+      <div class="mf-footer-brand">Maleducati Finanziari</div>
+      <p>© 2025 Maleducati Finanziari — P.IVA 13069380015</p>
+    </div>
+  </footer>
+
+</body>
+</html>
